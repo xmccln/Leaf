@@ -29,3 +29,6 @@ gale-api
 gale-server
 paper-api
 paper-server
+
+# class files
+*.class

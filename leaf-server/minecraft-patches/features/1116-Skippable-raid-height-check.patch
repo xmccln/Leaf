@@ -13,7 +13,7 @@ index 9712dc3da64e5c5f653eef353c0247805ccca685..e24260e808b50ad0eb7e2d2e41d11e20
              int i3 = this.center.getZ() + Mth.floor(Mth.sin(f2) * 32.0F * f) + this.level.random.nextInt(3) * Mth.floor(f);
              int height = this.level.getHeight(Heightmap.Types.WORLD_SURFACE, i2, i3);
 -            if (Mth.abs(height - this.center.getY()) <= 96) {
-+            if (org.leavesmc.leaves.LeavesConfig.modify.oldMC.raid.skipHeightCheck || Mth.abs(height - this.center.getY()) <= 96) { // Leaves - skippable
++            if (org.dreeam.leaf.config.modules.gameplay.RaidConfig.skipHeightCheck || Mth.abs(height - this.center.getY()) <= 96) { // Leaves - skippable
                  mutableBlockPos.set(i2, height, i3);
                  if (!this.level.isVillage(mutableBlockPos) || i <= 7) {
                      int i4 = 10;

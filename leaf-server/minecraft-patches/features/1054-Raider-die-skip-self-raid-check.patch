@@ -13,7 +13,7 @@ index 8270d76a753bfd26a4c8ef6610bee5c24ee59cfe..f58a20e7dd6b8dc3fc431d4aba9f91a7
  
      public boolean hasRaid() {
 -        return this.level() instanceof ServerLevel serverLevel && (this.getCurrentRaid() != null || serverLevel.getRaidAt(this.blockPosition()) != null);
-+        return !org.leavesmc.leaves.LeavesConfig.modify.skipSelfRaidCheck && (this.level() instanceof ServerLevel serverLevel && (this.getCurrentRaid() != null || serverLevel.getRaidAt(this.blockPosition()) != null));  // Leaves - skip self raid check
++        return !org.dreeam.leaf.config.modules.gameplay.RaidConfig.skipSelfRaidCheck && (this.level() instanceof ServerLevel serverLevel && (this.getCurrentRaid() != null || serverLevel.getRaidAt(this.blockPosition()) != null));  // Leaves - skip self raid check
      }
  
      public boolean hasActiveRaid() {
