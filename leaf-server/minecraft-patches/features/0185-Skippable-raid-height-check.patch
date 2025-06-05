@@ -5,10 +5,10 @@ Subject: [PATCH] Skippable raid height check
 
 
 diff --git a/net/minecraft/world/entity/raid/Raid.java b/net/minecraft/world/entity/raid/Raid.java
-index 9712dc3da64e5c5f653eef353c0247805ccca685..e24260e808b50ad0eb7e2d2e41d11e20d0067a69 100644
+index b84243dd10dbabe64dbe3fc5f7da2e0736de0736..06c8133a939279033e2503838310cc36ff4d83d8 100644
 --- a/net/minecraft/world/entity/raid/Raid.java
 +++ b/net/minecraft/world/entity/raid/Raid.java
-@@ -680,7 +680,7 @@ public class Raid {
+@@ -695,7 +695,7 @@ public class Raid {
              int i2 = this.center.getX() + Mth.floor(Mth.cos(f2) * 32.0F * f) + this.level.random.nextInt(3) * Mth.floor(f);
              int i3 = this.center.getZ() + Mth.floor(Mth.sin(f2) * 32.0F * f) + this.level.random.nextInt(3) * Mth.floor(f);
              int height = this.level.getHeight(Heightmap.Types.WORLD_SURFACE, i2, i3);

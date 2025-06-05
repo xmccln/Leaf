@@ -5,7 +5,7 @@ Subject: [PATCH] Revert raid changes
 
 
 diff --git a/net/minecraft/world/effect/BadOmenMobEffect.java b/net/minecraft/world/effect/BadOmenMobEffect.java
-index 80f17f33f670018240c854df589cf90cdeab6e70..4c6ce6a4a730033802651b0c0052fc46edeed4d6 100644
+index 80f17f33f670018240c854df589cf90cdeab6e70..1ccfdf6a55812f0306031010b110cca040106022 100644
 --- a/net/minecraft/world/effect/BadOmenMobEffect.java
 +++ b/net/minecraft/world/effect/BadOmenMobEffect.java
 @@ -22,6 +22,11 @@ class BadOmenMobEffect extends MobEffect {
@@ -21,10 +21,10 @@ index 80f17f33f670018240c854df589cf90cdeab6e70..4c6ce6a4a730033802651b0c0052fc46
              if (raidAt == null || raidAt.getRaidOmenLevel() < raidAt.getMaxRaidOmenLevel()) {
                  serverPlayer.addEffect(new MobEffectInstance(MobEffects.RAID_OMEN, 600, amplifier));
 diff --git a/net/minecraft/world/entity/raid/Raid.java b/net/minecraft/world/entity/raid/Raid.java
-index 41b0db439b425b052bd1469daa6620a435ca852b..4e2b73ad91b4fc12da123b22910a7e3a78b23d1d 100644
+index b83fbdb3093dbd56a9e707a652074d0b6033a761..b84243dd10dbabe64dbe3fc5f7da2e0736de0736 100644
 --- a/net/minecraft/world/entity/raid/Raid.java
 +++ b/net/minecraft/world/entity/raid/Raid.java
-@@ -318,7 +318,20 @@ public class Raid {
+@@ -327,7 +327,20 @@ public class Raid {
                          }
  
                          if (flag1) {
@@ -46,7 +46,7 @@ index 41b0db439b425b052bd1469daa6620a435ca852b..4e2b73ad91b4fc12da123b22910a7e3a
                          }
  
                          if (this.raidCooldownTicks == 300 || this.raidCooldownTicks % 20 == 0) {
-@@ -353,7 +366,14 @@ public class Raid {
+@@ -362,7 +375,14 @@ public class Raid {
                  int i = 0;
  
                  while (this.shouldSpawnGroup()) {
@@ -62,7 +62,7 @@ index 41b0db439b425b052bd1469daa6620a435ca852b..4e2b73ad91b4fc12da123b22910a7e3a
                      if (blockPos != null) {
                          this.started = true;
                          this.spawnGroup(blockPos);
-@@ -365,7 +385,7 @@ public class Raid {
+@@ -374,7 +394,7 @@ public class Raid {
                          i++;
                      }
  
@@ -71,7 +71,7 @@ index 41b0db439b425b052bd1469daa6620a435ca852b..4e2b73ad91b4fc12da123b22910a7e3a
                          org.bukkit.craftbukkit.event.CraftEventFactory.callRaidStopEvent(this, org.bukkit.event.raid.RaidStopEvent.Reason.UNSPAWNABLE); // CraftBukkit
                          this.stop();
                          break;
-@@ -680,6 +700,35 @@ public class Raid {
+@@ -695,6 +715,35 @@ public class Raid {
          return null;
      }
  
@@ -108,7 +108,7 @@ index 41b0db439b425b052bd1469daa6620a435ca852b..4e2b73ad91b4fc12da123b22910a7e3a
          return this.addWaveMob(wave, raider, true);
      }
 diff --git a/net/minecraft/world/entity/raid/Raider.java b/net/minecraft/world/entity/raid/Raider.java
-index f58a20e7dd6b8dc3fc431d4aba9f91a7c25f2c33..ce692698260d4751b13d5b26f7d9403c72b413c6 100644
+index 11555c7770b1dbe3d4ff55470df513c4039ff124..46f12851fd6301514a540276b8c69581fc3b60c0 100644
 --- a/net/minecraft/world/entity/raid/Raider.java
 +++ b/net/minecraft/world/entity/raid/Raider.java
 @@ -125,6 +125,43 @@ public abstract class Raider extends PatrollingMonster {
