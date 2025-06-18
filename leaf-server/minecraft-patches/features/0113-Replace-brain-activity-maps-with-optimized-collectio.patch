@@ -5,7 +5,7 @@ Subject: [PATCH] Replace brain activity maps with optimized collection
 
 
 diff --git a/net/minecraft/world/entity/ai/Brain.java b/net/minecraft/world/entity/ai/Brain.java
-index ea6c8e85ccff67b1c24109732f74f1e8199cad07..e27284f9897923f67985e3d60c3438bd00cc4a51 100644
+index 0f50db187e04582e9b66a63201af987f6db74939..b143cd6d5636dc61458a864cd548c886d14cd30c 100644
 --- a/net/minecraft/world/entity/ai/Brain.java
 +++ b/net/minecraft/world/entity/ai/Brain.java
 @@ -390,8 +390,8 @@ public class Brain<E extends LivingEntity> {
