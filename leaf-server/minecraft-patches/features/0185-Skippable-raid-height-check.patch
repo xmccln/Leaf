@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: violetc <58360096+s-yh-china@users.noreply.github.com>
+Date: Fri, 14 Mar 2025 10:55:57 +0800
+Subject: [PATCH] Skippable raid height check
+
+
+diff --git a/net/minecraft/world/entity/raid/Raid.java b/net/minecraft/world/entity/raid/Raid.java
+index b84243dd10dbabe64dbe3fc5f7da2e0736de0736..06c8133a939279033e2503838310cc36ff4d83d8 100644
+--- a/net/minecraft/world/entity/raid/Raid.java
++++ b/net/minecraft/world/entity/raid/Raid.java
+@@ -695,7 +695,7 @@ public class Raid {
+             int i2 = this.center.getX() + Mth.floor(Mth.cos(f2) * 32.0F * f) + this.level.random.nextInt(3) * Mth.floor(f);
+             int i3 = this.center.getZ() + Mth.floor(Mth.sin(f2) * 32.0F * f) + this.level.random.nextInt(3) * Mth.floor(f);
+             int height = this.level.getHeight(Heightmap.Types.WORLD_SURFACE, i2, i3);
+-            if (Mth.abs(height - this.center.getY()) <= 96) {
++            if (org.dreeam.leaf.config.modules.gameplay.RaidConfig.skipHeightCheck || Mth.abs(height - this.center.getY()) <= 96) { // Leaves - skippable
+                 mutableBlockPos.set(i2, height, i3);
+                 if (!this.level.isVillage(mutableBlockPos) || i <= 7) {
+                     int i4 = 10;
